@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <body>
+        <label for="miDropdown">Selecciona una acción:</label>
+        <select id="miDropdown" name="miDropdown">
+            <option value="seleccionar">Seleccionar una acción</option>
+            <option value="imagen">Mostrar una imagen</option>
+            <option value="pagina">Redirigir a una página</option>
+        </select>
+        <br>
+    
+        <div id="contenido"></div>
+    
+        <script>
+            // Función que se ejecutará cuando cambie la selección en el menú desplegable
+            document.getElementById("miDropdown").addEventListener("change", function () {
+                var seleccion = this.value; // Obtiene la opción seleccionada
+    
+                // Limpia el contenido anterior
+                document.getElementById("contenido").innerHTML = "";
+    
+                // Realiza acciones según la selección
+                if (seleccion === "imagen") {
+                    // Muestra una imagen
+                    var imagen = document.createElement("img");
+                    imagen.src = "assets/certificados/fotos/bash-linx"; // Cambia esto por la ruta de tu imagen
+                    document.getElementById("contenido").appendChild(imagen);
+                } else if (seleccion === "pagina") {
+                    // Redirige a una página
+                    window.location.href = "https://udemy-certificate.s3.amazonaws.com/pdf/UC-707ffe31-4ce2-493f-a5bc-959ad38d0ffa.pdf"; // Cambia esto por la URL de la página a la que deseas redirigir
+                }
+            });
+        </script>
+    </body>
+</html>
